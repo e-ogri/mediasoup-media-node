@@ -13,8 +13,8 @@ Add up the number of cores, and the number of pipes between routers and you have
 ### Docker
 
 ```bash
-$ docker build . -t user/edumeet-media-node
-$ docker run -p 3000:3000 -p 40000-40249:40000-40249/udp -p 40000-40249:40000-40249/tcp user/edumeet-media-node --ip <public-ip-of-host> --secret <secret-shared-with-room-server>
+$ docker build . -t user/mediasoup-media-node
+$ docker run -p 3000:3000 -p 40000-40249:40000-40249/udp -p 40000-40249:40000-40249/tcp user/mediasoup-media-node --ip <public-ip-of-host> --secret <secret-shared-with-room-server>
 ```
 
 ### Running the server manually
