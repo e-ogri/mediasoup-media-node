@@ -8,6 +8,7 @@
 	"scripts": {
 		"build": "tsc",
 		"start": "tsc && node dist/server.js",
+        "debugstart": "cross-env DEBUG=* yarn start --ip 127.0.0.1 --secret media --rtcMaxPort 40010 --rtcMaxPort 40012",
 		"prodstart": "node dist/server.js",
 		"lint": "eslint . --ext .ts",
 		"connect": "node connect.js"
@@ -24,6 +25,7 @@
 		"typescript": "^4.8.4"
 	},
 	"dependencies": {
+        "cross-env": "^7.0.3",
 		"debug": "^4.3.4",
 		"edumeet-common": "edumeet/edumeet-common",
 		"mediasoup": "havfo/mediasoup#v3",

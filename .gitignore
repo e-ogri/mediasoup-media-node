@@ -6,4 +6,5 @@ node_modules/
 !/certs/edumeet-demo-*
 
 .vscode
+help.txt
 yarn-error.log

@@ -50,8 +50,9 @@ const showUsage = () => {
 		listenPort = 3000,
 		listenHost = '0.0.0.0',
 		secret,
-		cert = './certs/edumeet-demo-cert.pem',
-		key = './certs/edumeet-demo-key.pem',
+		cert = './certs/vwealth-cert.crt',
+		key = './certs/vwealth-key.pem',
+		ca = './certs/vwealth-cert-ca.crt',
 		ip,
 		announcedIp,
 		initialAvailableOutgoingBitrate = 600000,
@@ -95,6 +96,7 @@ const showUsage = () => {
 	const httpsServer = https.createServer({
 		cert: fs.readFileSync(cert),
 		key: fs.readFileSync(key),
+		ca: fs.readFileSync(ca),
 		minVersion: 'TLSv1.2',
 		ciphers: [
 			'ECDHE-ECDSA-AES128-GCM-SHA256',
@@ -107,7 +109,10 @@ const showUsage = () => {
 			'DHE-RSA-AES256-GCM-SHA384'
 		].join(':'),
 		honorCipherOrder: true
-	});
+	}, (req, res) => {
+        res.writeHead(200);
+        res.end('vwealth.ru:3000  media');
+      });
 
 	httpsServer.listen({ port: listenPort, host: listenHost }, () =>
 		logger.debug('httpsServer.listen() [port: %s]', listenPort));
