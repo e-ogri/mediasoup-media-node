@@ -17,6 +17,11 @@ $ docker build . -t user/mediasoup-media-node
 $ docker run -p 3000:3000 -p 40000-40249:40000-40249/udp -p 40000-40249:40000-40249/tcp user/mediasoup-media-node --ip <public-ip-of-host> --secret <secret-shared-with-room-server>
 ```
 
+For current server with 1 core
+```bash
+$ docker run -p 3000:3000 -p 20000-20100:20000-20100/udp -p 20000-20100:20000-20100/tcp user/mediasoup-media-node --ip 127.0.0.1 --secret secret-shared-with-media-node --rtcMaxPort 20100 --rtcMinPort 20000
+```
+
 ### Running the server manually
 
 ```bash
